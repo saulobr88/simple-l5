@@ -1,9 +1,16 @@
 <?php
 
-define('RDS_HOSTNAME', $_SERVER['RDS_HOSTNAME']);
-define('RDS_USERNAME', $_SERVER['RDS_USERNAME']);
-define('RDS_PASSWORD', $_SERVER['RDS_PASSWORD']);
-define('RDS_DB_NAME', $_SERVER['RDS_DB_NAME']);
+if( env('APP_ENV') == 'aws' || env('DB_CONNECTION') == 'aws') {
+    define('RDS_HOSTNAME', $_SERVER['RDS_HOSTNAME']);
+    define('RDS_USERNAME', $_SERVER['RDS_USERNAME']);
+    define('RDS_PASSWORD', $_SERVER['RDS_PASSWORD']);
+    define('RDS_DB_NAME', $_SERVER['RDS_DB_NAME']);
+} else {
+    define('RDS_HOSTNAME', '127.0.0.1');
+    define('RDS_USERNAME', 'forge');
+    define('RDS_PASSWORD', '');
+    define('RDS_DB_NAME', 'forge');
+}
 
 return [
 

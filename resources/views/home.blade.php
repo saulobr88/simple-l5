@@ -17,6 +17,21 @@
                     You are logged in!
                 </div>
             </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">Users</div>
+
+                <div class="panel-body">
+                    @foreach($users as $u)
+                    <div class="media">
+                        <div class="media-body">
+                            <h4 class="media-heading">{{ $u->name }}</h4>
+                            {{ $u->email }}
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 </div>
